@@ -33,7 +33,73 @@
 {\metroset{background=dark}\maketitle}
 
 \begin{frame}{Introduction}
-    ...
+    \begin{itemize}
+        \item Auction with $n$ bidders and $M$ items
+        \item Some item groups gain added value when purchased together
+        \item Use of hyperedges to model these preferences
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Core Questions}
+    \begin{itemize}
+        \item Polynomial-time approximation maximizing welfare
+        \item A generalization of this approach
+        \item A truthful approximation mechanism
+    \end{itemize}
+\end{frame}
+
+\section{Polynomial-time approximation maximizing welfare}
+
+\begin{frame}{Polynomial-time approximation maximizing welfare}
+    \begin{columns}
+        \column{0.66\textwidth}
+        G is a planar graph 
+
+        \begin{block}{theorem}
+            For any $\varepsilon > 0$, we can compute a $(1 + \varepsilon)$-approximation of the optimal welfare repartition in polynomial-time.
+        \end{block}
+            
+        \begin{block}{theorem}
+            Once combined with VCG auctions, this mechanism is truthful.
+        \end{block}
+        
+        \column{0.34\textwidth}
+        algo
+    \end{columns}
+\end{frame}
+
+\begin{frame}[standout]
+    Can we generalize this approach ?
+\end{frame}
+
+\begin{frame}{Approximate welfare maximization algorithm}
+    \begin{columns}
+        \column{0.66\textwidth}
+        We generalize to $r$-hypergraph
+        
+        \begin{block}{theorem}
+            ...
+        \end{block}
+        
+        Unfortunately, this mechanism is not truthful.
+
+        \column{0.34\textwidth}
+        ...
+    \end{columns}
+\end{frame}
+
+\begin{frame}[standout]
+    Can we solve this problem ?
+\end{frame}
+
+\begin{frame}{A truthful approximation mechanism}
+    \begin{columns}
+        \column{0.66\textwidth}
+        ...
+        
+        \column{0.34\textwidth}
+        ...
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Conclusion}
