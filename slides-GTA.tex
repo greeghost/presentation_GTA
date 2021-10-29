@@ -3,9 +3,13 @@
 \usepackage{amsmath, amssymb}
 \usepackage{xcolor}
 \usepackage{tikz}
+\usepackage{algorithm2e}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{positioning}
-\tikzset{>=Latex}
+\tikzset{
+    sommet/.style = {circle, draw, on grid},
+    >=Latex
+}
 
 % Metropolis theme
 \usetheme{metropolis}
@@ -33,11 +37,29 @@
 {\metroset{background=dark}\maketitle}
 
 \begin{frame}{Introduction}
-    \begin{itemize}
-        \item Auction with $n$ bidders and $M$ items
-        \item Some item groups gain added value when purchased together
-        \item Use of hyperedges to model these preferences
-    \end{itemize}
+    \begin{columns}
+        \column{0.66\textwidth}
+        \begin{itemize}
+            \item Auction with $n$ bidders and $M$ items
+            \item Some item groups gain added value when purchased together
+            \item Use of hyperedges to model these preferences
+        \end{itemize}
+
+        \column{0.34\textwidth}
+            \begin{figure}[H]
+                \begin{tikzpicture}[node distance=0.25cm and 0.25cm, font=\small]
+                    \node (tout) [] {10};
+                    \node (galette) [below right=of tout] {galette ; 1};
+                    \node (jambon) [above right=of tout] {jambon ; 2};
+                    \node (fromage) [below left=of tout] {fromage ; 2};
+                    \node (oeuf) [above left=of tout] {oeuf ; 2};
+                    \draw (galette) -- (tout) -- (jambon) -- (tout) -- (oeuf) -- (tout) -- (fromage);
+                \end{tikzpicture}
+            \end{figure}
+
+    \end{columns}
+    
+    
 \end{frame}
 
 \begin{frame}{Core Questions}
@@ -64,7 +86,11 @@
         \end{block}
         
         \column{0.34\textwidth}
-        algo
+        On se restreint aux graphe auquel on a enlevé des neouds à une certaine distance (variable) de la racine
+        
+        Pour chacun de ces graphes, on calcule les allocations, et pour l'un d'entre eux on a une (1+varepsilon)-approximation
+        
+        
     \end{columns}
 \end{frame}
 
