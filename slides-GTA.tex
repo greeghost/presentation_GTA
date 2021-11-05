@@ -1,9 +1,8 @@
 \documentclass[aspectratio=169]{beamer}
-\usepackage{appendixnumberbeamer}
 \usepackage{amsmath, amssymb}
+\usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{tikz}
-\usepackage{algorithm2e}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{positioning}
 \tikzset{
@@ -28,9 +27,9 @@
 \makeatother
 
 \title{Combinatorial Auctions with Restricted Complements}
-\subtitle{Un article de I. Abraham, M. Babaioff, S. Dughmi et T. Roughgarden}
-\author{Hugo \textsc{Boulier}, Hugo \textsc{Francon} et Igor \textsc{Martayan}}
-\date{8 novembre 2021}
+\subtitle{An article by I. Abraham, M. Babaioff, S. Dughmi and T. Roughgarden}
+\author{Hugo \textsc{Boulier}, Hugo \textsc{Francon} \& Igor \textsc{Martayan}}
+\date{November 8, 2021}
 
 \begin{document}
 
@@ -38,28 +37,25 @@
 
 \begin{frame}{Introduction}
     \begin{columns}
-        \column{0.66\textwidth}
+        \column{0.6\textwidth}
         \begin{itemize}
-            \item Auction with $n$ bidders and $M$ items
+            \item Auction with $n$ bidders and $m$ items
             \item Some item groups gain added value when purchased together
             \item Use of hyperedges to model these preferences
         \end{itemize}
 
-        \column{0.34\textwidth}
-            \begin{figure}[H]
-                \begin{tikzpicture}[node distance=0.25cm and 0.25cm, font=\small]
-                    \node (tout) [] {10};
-                    \node (galette) [below right=of tout] {galette ; 1};
-                    \node (jambon) [above right=of tout] {jambon ; 2};
-                    \node (fromage) [below left=of tout] {fromage ; 2};
-                    \node (oeuf) [above left=of tout] {oeuf ; 2};
-                    \draw (galette) -- (tout) -- (jambon) -- (tout) -- (oeuf) -- (tout) -- (fromage);
-                \end{tikzpicture}
-            \end{figure}
-
+        \column{0.4\textwidth}
+        \begin{figure}[H]
+            \begin{tikzpicture}[node distance=0.25cm and 0.25cm, font=\small]
+                \node (complet) {10};
+                \node (galette) [label={0.5}, above left=of complet] {\includegraphics[width=0.4\textwidth]{img/crepe.jpg}};
+                \node (oeuf) [label={2.5}, above right=of complet] {\includegraphics[width=0.4\textwidth]{img/oeuf.jpg}};
+                \node (jambon) [label={1.5}, below left=of complet] {\includegraphics[width=0.4\textwidth]{img/jambon.png}};
+                \node (fromage) [label={2.5}, below right=of complet] {\includegraphics[width=0.4\textwidth]{img/fromage.jpg}};
+                \draw (galette) -- (complet) -- (jambon) -- (complet) -- (oeuf) -- (complet) -- (fromage);
+            \end{tikzpicture}
+        \end{figure}
     \end{columns}
-    
-    
 \end{frame}
 
 \begin{frame}{Core Questions}
@@ -70,27 +66,27 @@
     \end{itemize}
 \end{frame}
 
-\section{Polynomial-time approximation maximizing welfare}
+{\metroset{background=dark}\section{Polynomial-time approximation maximizing welfare}}
 
 \begin{frame}{Polynomial-time approximation maximizing welfare}
     \begin{columns}
-        \column{0.66\textwidth}
-        G is a planar graph 
+        \column{0.6\textwidth}
+        G is a planar graph
 
         \begin{block}{theorem}
             For any $\varepsilon > 0$, we can compute a $(1 + \varepsilon)$-approximation of the optimal welfare repartition in polynomial-time.
         \end{block}
-            
+
         \begin{block}{theorem}
             Once combined with VCG auctions, this mechanism is truthful.
         \end{block}
-        
-        \column{0.34\textwidth}
+
+        \column{0.4\textwidth}
         On se restreint aux graphe auquel on a enlevé des neouds à une certaine distance (variable) de la racine
-        
+
         Pour chacun de ces graphes, on calcule les allocations, et pour l'un d'entre eux on a une (1+varepsilon)-approximation
-        
-        
+
+
     \end{columns}
 \end{frame}
 
@@ -100,16 +96,16 @@
 
 \begin{frame}{Approximate welfare maximization algorithm}
     \begin{columns}
-        \column{0.66\textwidth}
+        \column{0.6\textwidth}
         We generalize to $r$-hypergraph
-        
+
         \begin{block}{theorem}
             ...
         \end{block}
-        
+
         Unfortunately, this mechanism is not truthful.
 
-        \column{0.34\textwidth}
+        \column{0.4\textwidth}
         ...
     \end{columns}
 \end{frame}
@@ -120,10 +116,10 @@
 
 \begin{frame}{A truthful approximation mechanism}
     \begin{columns}
-        \column{0.66\textwidth}
+        \column{0.6\textwidth}
         ...
-        
-        \column{0.34\textwidth}
+
+        \column{0.4\textwidth}
         ...
     \end{columns}
 \end{frame}
@@ -131,8 +127,5 @@
 \begin{frame}{Conclusion}
     ...
 \end{frame}
-
-% \appendix
-% Annexes ici
 
 \end{document}
