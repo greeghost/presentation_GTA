@@ -195,10 +195,14 @@
 \begin{frame}{Approximate welfare maximization algorithm}
     \begin{columns}
         \column{0.6\textwidth}
-        We generalize to $r$-hypergraph with \alert{nonnegative hyperedge weight}
+        We generalize to \(r\)-hypergraph with \alert{nonnegative hyperedge weight}
 
-        \begin{block}{Theorem}
+        \begin{block}{Polynomial time \(r\)-approximation}
             The welfare maximization problem can be \(r\)-approximated in polynomial time.
+        \end{block}
+
+        \begin{block}{Known lower bound [Trevisan, 2001]}
+            There is no \(r/2^{O(\sqrt{\log r})}\)-approximation.
         \end{block}
 
         \column{0.4\textwidth}
@@ -230,7 +234,7 @@
 
 \begin{frame}{The randomized rounding algorithm}
     \begin{columns}
-        \column{0.6\textwidth}
+        \column{0.5\textwidth}
         \hrule
         \vspace{.1cm}
         \textbf{Input:} an optimal (real) solution \((x^*, z^*)\) of the linear program
@@ -244,8 +248,18 @@
         \end{enumerate}
         \hrule
 
-        \column{0.4\textwidth}
+        \column{0.5\textwidth}
+        Probability that player \(i\) gets edge \(e\) greater than \(\frac{z_{ie}^*}{|e|} \geqslant \frac{z_{ie}^*}{r}\)
+
+        In particular, \alert{optimal player} has at least \alert{\(1/r\) chance} of obtaining this edge.
+
+        \(\Rightarrow\) \(r\)-approximation
+
     \end{columns}
+    \pause
+    \begin{center}
+        \alert<2>{Not Truthful}
+    \end{center}
 \end{frame}
 
 \begin{frame}[standout]
