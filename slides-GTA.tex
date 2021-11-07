@@ -60,19 +60,48 @@
 
 \begin{frame}{Core Questions}
     \begin{enumerate}
-        \item Polynomial-time approximation for \alert{planar graphs}?
-        \item Polynomial-time approximation for \alert{hypergraphs}?
+        \item Polynomial approximation for \alert{planar graphs}?
+        \item Polynomial approximation for \alert{hypergraphs}?
         \item \alert{Truthful version} of this approximation?
     \end{enumerate}
 \end{frame}
 
-{\metroset{background=dark}\section{Polynomial-time approximation for planar graphs}}
+{\metroset{background=dark}\section{Polynomial approximation for planar graphs}}
 
-\begin{frame}{Polynomial-time approximation maximizing welfare}
+\begin{frame}{Baker's technique for polynomial approximation}
     \begin{columns}
         \column{0.6\textwidth}
-        G is a planar graph
+        \begin{block}{Baker's decomposition [Baker, 1994]}
+            A \alert{planar graph} $G$ can be partitioned into $P_0, \dots, P_k$ such that for each $i$, $G \setminus P_i$ has a \alert{treewidth} $\leqslant 3k$.
+        \end{block}
 
+        Very useful for \alert{polynomial approximations}
+
+        \begin{block}{Generalization with minors [DeVos, 2004]}
+            The same method can be applied for any graph that \alert{excludes a given minor} $X$.
+        \end{block}
+
+        \column{0.4\textwidth}
+        ...
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Planar graphs characterization with minors}
+    \begin{columns}
+        \column{0.6\textwidth}
+
+        \begin{block}{Kuratowski's theorem [Kuratowski, 1930]}
+            A graph is planar if and only if it does not contain \alert{$K_5$} or \alert{$K_{3,3}$} as a minor.
+        \end{block}
+
+        \column{0.4\textwidth}
+        ...
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Polynomial-time approximation for planar graphs}
+    \begin{columns}
+        \column{0.6\textwidth}
         \begin{block}{theorem}
             For any $\varepsilon > 0$, we can compute a $(1 + \varepsilon)$-approximation of the optimal welfare repartition in polynomial-time.
         \end{block}
@@ -91,7 +120,7 @@
 \end{frame}
 
 \begin{frame}[standout]
-    Can we generalize this approach ?
+    Can we generalize this approach for \alert{hypergraphs}?
 \end{frame}
 
 \begin{frame}{Approximate welfare maximization algorithm}
@@ -111,7 +140,7 @@
 \end{frame}
 
 \begin{frame}[standout]
-    Can we solve this problem ?
+    Can we find a \alert{truthful version} of this approach?
 \end{frame}
 
 \begin{frame}{A truthful approximation mechanism}
