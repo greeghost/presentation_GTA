@@ -224,10 +224,41 @@
 \begin{frame}{A truthful approximation mechanism}
     \begin{columns}
         \column{0.6\textwidth}
-        ...
+        % Oracle that can be computed in polynomial time \(\Rightarrow\) LP of exponetial size can be solved in polynomial time
+
+        % Set of feasable integral solutions
+
+        % Random allocation
+
+         
+
+        \begin{block}{Algorithm}
+            \begin{enumerate}
+                \item Compute an oracle in polynomial time
+                \item Solve a linear program of exponential size in polynomial time
+                \item Choose an integral solution from a set of feasible integral solutions
+                \item Random allocation similar to the precedent algorithm
+            \end{enumerate}
+        \end{block}
+
+        % \begin{block}{Algorithm}
+        %     \begin{enumerate}
+        %         \item \alert{Partition} $G$ into $P_0, \dots, P_k$ such that each $G_i = G \setminus P_i$ has a \alert{fixed treewidth}
+        %         \item Compute the \alert{tree decomposition} of each $G_i$
+        %         \item Compute the optimal allocation $A_i$ for each tree with \alert{dynamic programming}
+        %         \item Return $A^* = \arg \max v(A_i)$
+        %     \end{enumerate}
+        % \end{block}
+
 
         \column{0.4\textwidth}
-        ...
+        \begin{itemize}
+            \item Expected value is optimal for the feasible solutions 
+            
+            \(\hookrightarrow\) truthful with VCG-like payments
+            \item \(\alpha \log^r(m)\)-approximation 
+        \end{itemize}
+
     \end{columns}
 \end{frame}
 
