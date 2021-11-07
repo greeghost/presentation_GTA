@@ -1,5 +1,5 @@
 \documentclass[aspectratio=169]{beamer}
-\usepackage{amsmath, amssymb}
+\usepackage{amsmath, amssymb, amsfonts}
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{tikz}
@@ -252,10 +252,10 @@
 
         \column{0.4\textwidth}
         \begin{itemize}
-            \item Expected value is optimal for the feasible solutions 
-            
+            \item Expected value is optimal for the feasible solutions
+
             \(\hookrightarrow\) truthful with VCG-like payments
-            \item \(\alpha \log^r(m)\)-approximation 
+            \item \(\mathcal{O}(\log^r(m))\) approximation
         \end{itemize}
 
     \end{columns}
@@ -263,17 +263,18 @@
 
 \begin{frame}{Conclusion}
     \begin{columns}
-        \begin{column}{0.6\textwidth}
+        \begin{column}{0.5\textwidth}
             \begin{itemize}
-                \item First work on auctions with complements
+                \item First step for auctions with complements
                 \item Polynomial time approximations
                 \item Truthful in some cases
             \end{itemize}
         \end{column}
-        \begin{column}{0.4\textwidth}
+        \begin{column}{0.5\textwidth}
             Limits:
             \begin{itemize}
-                \item 
+                \item Expensive complexity despite polynomial time : \(n^{\mathcal{O}\left(\frac{1}{\varepsilon}\right)}\)
+                \item Limitation to nonnegative-weight hyperedges
             \end{itemize}
         \end{column}
     \end{columns}
