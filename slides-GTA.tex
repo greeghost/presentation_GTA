@@ -5,6 +5,7 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
 \tikzset{
     sommet/.style = {circle, draw, on grid},
     >=Latex
@@ -96,7 +97,34 @@
         \end{block}
 
         \column{0.4\textwidth}
-        ...
+        \begin{figure}
+            \centering
+            \begin{tikzpicture}
+                \node[regular polygon, regular polygon sides=5, minimum size=2cm] (P) {};
+                \foreach \i in {1, ..., 5} {
+                        \node (\i) [sommet] at (P.corner \i) {};
+                    }
+                \foreach \i in {1, ..., 5} {
+                        \foreach \j in {\i, ..., 5} {
+                                \draw (\i) -- (\j);
+                            }
+                    }
+            \end{tikzpicture}
+        \end{figure}
+        \begin{figure}
+            \centering
+            \begin{tikzpicture}[node distance=1cm and 1cm]
+                \node (A) [sommet] {};
+                \node (B) [sommet, right=of A] {};
+                \node (C) [sommet, right=of B] {};
+                \node (D) [sommet, below=of A] {};
+                \node (E) [sommet, right=of D] {};
+                \node (F) [sommet, right=of E] {};
+                \path (A) edge (D) edge (E) edge (F)
+                (B) edge (D) edge (E) edge (F)
+                (C) edge (D) edge (E) edge (F);
+            \end{tikzpicture}
+        \end{figure}
     \end{columns}
 \end{frame}
 
