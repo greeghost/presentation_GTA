@@ -9,6 +9,9 @@
     sommet/.style = {circle, draw, on grid},
     >=Latex
 }
+\usepackage[boxed]{algorithm2e}
+\SetKwProg{Algo}{algorithm}{}{}
+
 
 % Metropolis theme
 \usetheme{metropolis}
@@ -97,16 +100,56 @@
 \begin{frame}{Approximate welfare maximization algorithm}
     \begin{columns}
         \column{0.6\textwidth}
-        We generalize to $r$-hypergraph
+        We generalize to $r$-hypergraph with \alert{nonnegative hyperedge weight}
 
-        \begin{block}{theorem}
-            ...
+        \begin{block}{Theorem}
+            The welfare maximization problem can be \(r\)-approximated in polynomial time.
         \end{block}
 
-        Unfortunately, this mechanism is not truthful.
+        \column{0.4\textwidth}
+        2 step algorithm:
+        \begin{itemize}
+            \item (real) linear programming
+            \item randomized assignment
+        \end{itemize}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{The linear program}
+    \[
+        \text{maximize:} \sum_{i \,\in \{\text{bidders}\}} \left(
+            \sum_{j \,\in \{\text{items}\}} w_{ij}\, {\color{orange} x_{ij}}
+            + \sum_{e \,\in \{\text{edges}\}_i} w_{ie}\, {\color{blue} z_{ie}}
+        \right)
+    \]
+    with
+    \begin{align*}
+        \sum_{i \,\in \{\text{bidders}\}} {\color{orange} x_{ij}}  = 1 & \hspace{.5cm} \text{for all item \(j\)}\\
+        {\color{blue} z_{ie}}  \leqslant {\color{orange} x_{ij}} & \hspace{.5cm} \text{for all player \(i\), edge \(e\) and item \(j\)}\\
+        {\color{orange} x_{ij}}   \geqslant 0 & \hspace{.5cm} \text{for all player \(i\) and item \(j\)}\\
+        {\color{blue} z_{ie}}  \geqslant 0 & \hspace{.5cm} \text{for all player \(i\) and edge \(e\)}
+    \end{align*}
+
+    $\Rightarrow$ Real-valued valuation in \alert{polynomial time}.
+\end{frame}
+
+\begin{frame}{The randomized rounding algorithm}
+    \begin{columns}
+        \column{0.6\textwidth}
+        \hrule
+        \vspace{.1cm}
+        \textbf{Input:} an optimal (real) solution \((x^*, z^*)\) of the linear program
+
+        \vspace{.5cm}
+        \textbf{While} there exists an unassigned item
+        \begin{enumerate}
+            \item choose a player \(i\) at random
+            \item choose a threshold \(t \in [0, 1]\) at random
+            \item assign to \(i\) every unassigned item with \(x_{ij}^* \geqslant t\)
+        \end{enumerate}
+        \hrule
 
         \column{0.4\textwidth}
-        ...
     \end{columns}
 \end{frame}
 
