@@ -47,11 +47,11 @@
         \column{0.4\textwidth}
         \begin{figure}[H]
             \begin{tikzpicture}[node distance=0.25cm and 0.25cm, font=\small]
-                \node (complet) {10};
-                \node (galette) [label={0.5}, above left=of complet] {\includegraphics[width=0.4\textwidth]{img/crepe.jpg}};
-                \node (oeuf) [label={2.5}, above right=of complet] {\includegraphics[width=0.4\textwidth]{img/oeuf.jpg}};
-                \node (jambon) [label={1.5}, below left=of complet] {\includegraphics[width=0.4\textwidth]{img/jambon.png}};
-                \node (fromage) [label={2.5}, below right=of complet] {\includegraphics[width=0.4\textwidth]{img/fromage.jpg}};
+                \node (complet) [inner sep=1pt] {10};
+                \node (galette) [label={\scriptsize 0.5}, above left=of complet] {\includegraphics[width=0.4\textwidth]{img/crepe.jpg}};
+                \node (oeuf) [label={\scriptsize 2.5}, above right=of complet] {\includegraphics[width=0.4\textwidth]{img/oeuf.jpg}};
+                \node (jambon) [label={\scriptsize 1.5}, below left=of complet] {\includegraphics[width=0.4\textwidth]{img/jambon.png}};
+                \node (fromage) [label={\scriptsize 2.5}, below right=of complet] {\includegraphics[width=0.4\textwidth]{img/fromage.jpg}};
                 \draw (galette) -- (complet) -- (jambon) -- (complet) -- (oeuf) -- (complet) -- (fromage);
             \end{tikzpicture}
         \end{figure}
@@ -59,14 +59,14 @@
 \end{frame}
 
 \begin{frame}{Core Questions}
-    \begin{itemize}
-        \item Polynomial-time approximation maximizing welfare
-        \item A generalization of this approach
-        \item A truthful approximation mechanism
-    \end{itemize}
+    \begin{enumerate}
+        \item Polynomial-time approximation for \alert{planar graphs}?
+        \item Polynomial-time approximation for \alert{hypergraphs}?
+        \item \alert{Truthful version} of this approximation?
+    \end{enumerate}
 \end{frame}
 
-{\metroset{background=dark}\section{Polynomial-time approximation maximizing welfare}}
+{\metroset{background=dark}\section{Polynomial-time approximation for planar graphs}}
 
 \begin{frame}{Polynomial-time approximation maximizing welfare}
     \begin{columns}
