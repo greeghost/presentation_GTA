@@ -16,6 +16,7 @@
 \usepackage[boxed]{algorithm2e}
 \SetKwProg{Algo}{algorithm}{}{}
 \usepackage{appendixnumberbeamer}
+\everymath{\displaystyle}
 
 % Metropolis theme
 \usetheme{metropolis}
@@ -134,7 +135,7 @@
             \item \alert{Partition} $G$ into $P_0, \dots, P_k$ such that each $G_i = G \setminus P_i$ has a \alert{fixed treewidth}
             \item Compute the \alert{tree decomposition} of each $G_i$
             \item Compute the optimal allocation $A_i$ for each tree with \alert{dynamic programming}
-            \item Return $A^* = \arg \max v(A_i)$
+            \item Return $A^* = \arg \max_{A_i} \sum_{j \in N} v_j(A_i^{-1}(j))$
         \end{enumerate}
     \end{block}
 
