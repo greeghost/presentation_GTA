@@ -79,7 +79,7 @@
         \column{0.6\textwidth}
         \onslide<2->{
             \begin{block}{Baker's decomposition [Baker, 1994]}
-                A \alert{planar graph} $G$ can be partitioned into $P_0, \dots, P_k$ such that for each $i$, $G \setminus P_i$ has a \alert{treewidth} $\leqslant 3k$.
+                A \alert{planar graph} $G$ can be partitioned into $P_0, \dots, P_k$ such that for each $i$, $G \setminus P_i$ has a treewidth $\leqslant 3k$.
             \end{block}
 
             $\hookrightarrow$ very useful for \alert{polynomial approximations}
@@ -135,7 +135,7 @@
         \column{0.65\textwidth}
         \begin{block}{Algorithm}
             \begin{enumerate}
-                \item \alert{Partition} $G$ into $P_0, \dots, P_k$ such that each $G_i = G \setminus P_i$ has a \alert{fixed treewidth}
+                \item \alert{Partition} $G$ into $P_0, \dots, P_k$ such that each $G_i = G \setminus P_i$ has a fixed \alert{treewidth}
                 \item Compute the \alert{tree decomposition} of each $G_i$
                 \item Compute the optimal allocation $A_i$ for each tree with \alert{dynamic programming}
                 \item Return $A^* = \arg \max_{A_i} \sum_{j \,\in \{\text{bidders}\}} v_j(A_i^{-1}(j))$
@@ -159,7 +159,7 @@
 \end{frame}
 
 \begin{frame}[standout]
-    Can we generalize this approach for \alert{hypergraphs}?
+    Can we generalize this approach for hypergraphs?
 \end{frame}
 
 \begin{frame}{Approximate welfare maximization algorithm}
@@ -231,7 +231,7 @@
 \end{frame}
 
 \begin{frame}[standout]
-    Can we find a \alert{truthful version} of this approach?
+    Can we find a truthful version of this approach?
 \end{frame}
 
 \begin{frame}{A truthful approximation mechanism}
