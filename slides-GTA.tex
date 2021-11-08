@@ -77,15 +77,19 @@
 \begin{frame}{Baker's technique for polynomial approximation}
     \begin{columns}
         \column{0.6\textwidth}
-        \begin{block}{Baker's decomposition [Baker, 1994]}
-            A \alert{planar graph} $G$ can be partitioned into $P_0, \dots, P_k$ such that for each $i$, $G \setminus P_i$ has a \alert{treewidth} $\leqslant 3k$.
-        \end{block}
+        \onslide<2->{
+            \begin{block}{Baker's decomposition [Baker, 1994]}
+                A \alert{planar graph} $G$ can be partitioned into $P_0, \dots, P_k$ such that for each $i$, $G \setminus P_i$ has a \alert{treewidth} $\leqslant 3k$.
+            \end{block}
 
-        $\hookrightarrow$ very useful for \alert{polynomial approximations}
+            $\hookrightarrow$ very useful for \alert{polynomial approximations}
+        }
 
-        \begin{block}{Generalization with minors [DeVos, 2004]}
-            The same method can be applied for any graph that \alert{excludes a given minor} $X$.
-        \end{block}
+        \onslide<3->{
+            \begin{block}{Generalization with minors [DeVos, 2004]}
+                The same method can be applied for any graph that \alert{excludes a given minor} $X$.
+            \end{block}
+        }
 
         \column{0.4\textwidth}
         \begin{figure}
@@ -93,7 +97,7 @@
             \begin{tikzpicture}
                 \node (0A) at (0, 1) {};
                 \node (1A) [sommet, c1] at (0,0) {};
-                \path[->] (0A) edge (1A);
+                \onslide<2->{\path[->] (0A) edge (1A);}
                 \node (2A) [sommet, c2] at (-1, 0) {};
                 \node (2B) [sommet, c2] at (0, -1) {};
                 \node (2C) [sommet, c2] at (1, 0) {};
@@ -140,9 +144,11 @@
 
         $\hookrightarrow$ polynomial \alert{$(1 + \varepsilon)$-approximation}
 
-        \begin{block}{Truthfulness}
-            Once combined with \alert{VCG payment}, this mechanism is \alert{truthful}.
-        \end{block}
+        \onslide<2->{
+            \begin{block}{Truthfulness}
+                Once combined with \alert{VCG payment}, this mechanism is \alert{truthful}.
+            \end{block}
+        }
 
         \column{0.35\textwidth}
         \begin{figure}[H]
@@ -166,7 +172,7 @@
         \end{block}
 
         \begin{block}{Known lower bound [Trevisan, 2001]}
-            There is no \(r/2^{O(\sqrt{\log r})}\)-approximation.
+            There is no \(r/2^{\mathcal{O}(\sqrt{\log r})}\)-approximation.
         \end{block}
 
         \column{0.4\textwidth}
