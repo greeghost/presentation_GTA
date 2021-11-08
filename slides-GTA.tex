@@ -13,8 +13,6 @@
     c3/.style = {fill=violet!50},
     >=Latex
 }
-\usepackage[boxed]{algorithm2e}
-\SetKwProg{Algo}{algorithm}{}{}
 \usepackage{appendixnumberbeamer}
 \everymath{\displaystyle}
 
@@ -48,8 +46,8 @@
         \column{0.6\textwidth}
         \begin{itemize}
             \item Auction with $n$ bidders and $m$ items
-            \item Some item groups gain added value when purchased together
-            \item Use of hyperedges to model these preferences
+            \item Some \alert{item groups} gain added value when purchased together
+            \item Modeled with \alert{hyperedges}
         \end{itemize}
 
         \column{0.4\textwidth}
@@ -135,11 +133,11 @@
             \item \alert{Partition} $G$ into $P_0, \dots, P_k$ such that each $G_i = G \setminus P_i$ has a \alert{fixed treewidth}
             \item Compute the \alert{tree decomposition} of each $G_i$
             \item Compute the optimal allocation $A_i$ for each tree with \alert{dynamic programming}
-            \item Return $A^* = \arg \max_{A_i} \sum_{j \in N} v_j(A_i^{-1}(j))$
+            \item Return $A^* = \arg \max_{A_i} \sum_{j \,\in \{\text{bidders}\}} v_j(A_i^{-1}(j))$
         \end{enumerate}
     \end{block}
 
-    $\hookrightarrow$ polynomial $(1 + \varepsilon)$-approximation
+    $\hookrightarrow$ polynomial \alert{$(1 + \varepsilon)$-approximation}
 
     \begin{block}{Truthfulness}
         Once combined with \alert{VCG payment}, this mechanism is \alert{truthful}.
@@ -181,10 +179,10 @@
     \]
     with
     \begin{align*}
-        \sum_{i \,\in \{\text{bidders}\}} {\color{orange} x_{ij}}  = 1 & \hspace{.5cm} \text{for all item \(j\)}                              \\
-        {\color{blue} z_{ie}}  \leqslant {\color{orange} x_{ij}}       & \hspace{.5cm} \text{for all player \(i\), edge \(e\) and item \(j\)} \\
-        {\color{orange} x_{ij}}   \geqslant 0                          & \hspace{.5cm} \text{for all player \(i\) and item \(j\)}             \\
-        {\color{blue} z_{ie}}  \geqslant 0                             & \hspace{.5cm} \text{for all player \(i\) and edge \(e\)}
+        \sum_{i \,\in \{\text{bidders}\}} {\color{orange} x_{ij}} = 1 & \hspace{.5cm} \text{for all item \(j\)}                              \\
+        {\color{blue} z_{ie}} \leqslant {\color{orange} x_{ij}}       & \hspace{.5cm} \text{for all player \(i\), edge \(e\) and item \(j\)} \\
+        {\color{orange} x_{ij}} \geqslant 0                           & \hspace{.5cm} \text{for all player \(i\) and item \(j\)}             \\
+        {\color{blue} z_{ie}} \geqslant 0                             & \hspace{.5cm} \text{for all player \(i\) and edge \(e\)}
     \end{align*}
 
     $\hookrightarrow$ Real-valued valuation in \alert{polynomial time}.
@@ -224,13 +222,7 @@
 
 \begin{frame}{A truthful approximation mechanism}
     \begin{columns}
-        \column{0.6\textwidth}
-        % Oracle that can be computed in polynomial time \(\Rightarrow\) LP of exponetial size can be solved in polynomial time
-
-        % Set of feasable integral solutions
-
-        % Random allocation
-
+        \column{0.55\textwidth}
         \begin{block}{Algorithm}
             \begin{enumerate}
                 \item Compute an oracle in polynomial time
@@ -240,22 +232,12 @@
             \end{enumerate}
         \end{block}
 
-        % \begin{block}{Algorithm}
-        %     \begin{enumerate}
-        %         \item \alert{Partition} $G$ into $P_0, \dots, P_k$ such that each $G_i = G \setminus P_i$ has a \alert{fixed treewidth}
-        %         \item Compute the \alert{tree decomposition} of each $G_i$
-        %         \item Compute the optimal allocation $A_i$ for each tree with \alert{dynamic programming}
-        %         \item Return $A^* = \arg \max v(A_i)$
-        %     \end{enumerate}
-        % \end{block}
-
-
-        \column{0.4\textwidth}
+        \column{0.45\textwidth}
         \begin{itemize}
             \item Expected value is optimal for the feasible solutions
 
-            \(\hookrightarrow\) truthful with VCG-like payments
-            \item \(\mathcal{O}(\log^r(m))\) approximation
+                  \(\hookrightarrow\) \alert{truthful} with VCG payments
+            \item \(\mathcal{O}(\log^r m)\) approximation
         \end{itemize}
 
     \end{columns}
