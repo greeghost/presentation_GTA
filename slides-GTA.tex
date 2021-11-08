@@ -14,7 +14,6 @@
     >=Latex
 }
 \usepackage{appendixnumberbeamer}
-\everymath{\displaystyle}
 
 % Metropolis theme
 \usetheme{metropolis}
@@ -128,20 +127,29 @@
 \end{frame}
 
 \begin{frame}{Polynomial-time approximation for planar graphs}
-    \begin{block}{Algorithm}
-        \begin{enumerate}
-            \item \alert{Partition} $G$ into $P_0, \dots, P_k$ such that each $G_i = G \setminus P_i$ has a \alert{fixed treewidth}
-            \item Compute the \alert{tree decomposition} of each $G_i$
-            \item Compute the optimal allocation $A_i$ for each tree with \alert{dynamic programming}
-            \item Return $A^* = \arg \max_{A_i} \sum_{j \,\in \{\text{bidders}\}} v_j(A_i^{-1}(j))$
-        \end{enumerate}
-    \end{block}
+    \begin{columns}
+        \column{0.65\textwidth}
+        \begin{block}{Algorithm}
+            \begin{enumerate}
+                \item \alert{Partition} $G$ into $P_0, \dots, P_k$ such that each $G_i = G \setminus P_i$ has a \alert{fixed treewidth}
+                \item Compute the \alert{tree decomposition} of each $G_i$
+                \item Compute the optimal allocation $A_i$ for each tree with \alert{dynamic programming}
+                \item Return $A^* = \arg \max_{A_i} \sum_{j \,\in \{\text{bidders}\}} v_j(A_i^{-1}(j))$
+            \end{enumerate}
+        \end{block}
 
-    $\hookrightarrow$ polynomial \alert{$(1 + \varepsilon)$-approximation}
+        $\hookrightarrow$ polynomial \alert{$(1 + \varepsilon)$-approximation}
 
-    \begin{block}{Truthfulness}
-        Once combined with \alert{VCG payment}, this mechanism is \alert{truthful}.
-    \end{block}
+        \begin{block}{Truthfulness}
+            Once combined with \alert{VCG payment}, this mechanism is \alert{truthful}.
+        \end{block}
+
+        \column{0.35\textwidth}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{img/treewidth.pdf}
+        \end{figure}
+    \end{columns}
 \end{frame}
 
 \begin{frame}[standout]
